@@ -1,27 +1,33 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
-class Login extends React.Component {
+
+export default class Login extends Component {
     render(){
-        <div>
-            <h1>Login</h1>
-            <form onSubmit="{this.handleSubmit}">
-                <p><input
-                    name='username'
-                    placeholder='username'
-                    type='text'
-                    value='{this.state.username}'
-                    onChange='{this.handleChange}'
-                /></p>
-                <p><input
-                    name='password'
-                    placeholder='password'
-                    type='password'
-                    value='{this.state.password}'
-                    onChange='{this.handleChange}'
-                />
-                </p>
-                <p><button type='submit'>Login</button></p>
-            </form>
-        </div>
+        return(
+            <div>
+                <h1>Login</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <p><input
+                        name="username"
+                        placeholder="username"
+                        type="text"
+                        value={this.state.username}
+                        onChange={this.handleChange}
+                    /></p>
+                    <p><input
+                        name="password"
+                        placeholder="password"
+                        type="password"
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                    />
+                    </p>
+                    <p><button type="submit">Login</button></p>
+                </form>
+                <p>New User?</p>
+                <p><Link to="/newuser">create new user</Link></p>
+            </div>
+        );
     }
 }

@@ -1,31 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
+import LightInterface from './components/lightInterface';
+import NewUser from './components/newUser';
+import Login from './components/login';
 
-function App() {
-  return (
-      <div>
-        <h1>Login</h1>
-        <form onSubmit="{this.handleSubmit}">
-          <p><input
-              name='username'
-              placeholder='username'
-              type='text'
-              value='{this.state.username}'
-              onChange='{this.handleChange}'
-          /></p>
-          <p><input
-              name='password'
-              placeholder='password'
-              type='password'
-              value='{this.state.password}'
-              onChange='{this.handleChange}'
-          />
-          </p>
-            <p><button type='submit'>Login</button></p>
-        </form>
-      </div>
-  );
+export default class App extends Component {
+    render() {
+        return (
+            <main>
+                <BrowserRouter>
+                    <h1>Hue Out There?</h1>
+                    <Route exact path="./components/lightInterface" component={LightInterfaceightInterface}/>
+                    <Route exact path="/components/newUser" component={NewUser}/>
+                    <Route exact path="/" component={Login}/>
+                </BrowserRouter>
+            </main>
+        );
+    }
 }
 
-export default App;
